@@ -1,0 +1,36 @@
+/* Estilos generales para el navbar */
+.navbar {
+    background-color: #004d99; /* Color de fondo azul oscuro */
+    padding: 10px 20px; /* Espaciado alrededor del contenido del navbar */
+    text-align: center; /* Alinea los elementos del navbar al centro */
+  }
+  
+  /* Estilos para la lista dentro del navbar */
+  .nav-list {
+    list-style: none; /* Elimina los estilos de lista predeterminados */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    padding: 0; /* Elimina el padding predeterminado */
+    display: flex; /* Display flex para alinear los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos de la lista horizontalmente */
+    align-items: center; /* Centra los elementos de la lista verticalmente */
+  }
+  
+  /* Estilos para cada ítem del navbar */
+  .nav-item {
+    margin: 0 15px; /* Espaciado horizontal entre elementos */
+  }
+  
+  /* Estilos para los enlaces dentro del navbar */
+  .nav-link {
+    color: white; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold; /* Hace el texto negrita */
+    transition: color 0.3s; /* Transición suave para los cambios de color */
+  }
+  
+  /* Estilos para los enlaces al pasar el mouse */
+  .nav-link:hover {
+    color: #ffcc00; /* Cambia el color al pasar el mouse */
+  }
+  
