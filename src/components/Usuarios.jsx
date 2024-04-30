@@ -73,28 +73,26 @@ const Usuarios = () => {
 
 
     return (<div>
-        <div>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>eMail</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {usuarios.map((u) => (
-                <tr key={u.id}>
-                <td>{u.id}</td>
-                <td>{u.nombre}</td>
-                <td>{u.apellido}</td>
-                <td>{u.email}</td>
+        <table className="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>eMail</th>
                 </tr>
-                ))}
-                </tbody>
-            </table>
-        </div>
+            </thead>
+            <tbody>
+                {usuarios.map((u) => (
+            <tr key={u.id}>
+              <td>{u.id}</td>
+              <td>{u.nombre}</td>
+              <td>{u.apellido}</td>
+              <td>{u.email}</td>
+            </tr>
+            ))}
+            </tbody>
+        </table>
         <div>
             <h2>Crear Usuario</h2>
             <form onSubmit={crearUsuario}>
@@ -104,7 +102,7 @@ const Usuarios = () => {
                 <button type="submit">Crear Usuario</button>
             </form>
         </div>
-        <div style={{ margin: '20px', padding: '20px', border: '1px solid #ccc' }}>
+        <div>
             <h2>Modificar Usuario</h2>
             <form onSubmit={modificarUsuario}>
                 <input type="text" placeholder="ID del Usuario" name="userID" value={editUser.userID} onChange={handleEditUserChange} required />
@@ -114,7 +112,7 @@ const Usuarios = () => {
                 <button type="submit">Modificar Usuario</button>
             </form>
         </div>
-        <div style={{ margin: '20px', padding: '20px', border: '1px solid #ccc' }}>
+        <div>
             <h2>Eliminar Usuario</h2>
             <form onSubmit={eliminarUsuario}>
                 <input type="text" placeholder="ID del Usuario" value={deleteUserID} onChange={handleDeleteUserIDChange} required />
