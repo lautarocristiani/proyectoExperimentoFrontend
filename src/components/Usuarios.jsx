@@ -21,11 +21,11 @@ const Usuarios = () => {
         obtenerUsuarios();
     }, []);
 
-    const createUser = async (event) => {
+    const crearUsuario = async (event) => {
         event.preventDefault();
         try {
           const response = await axios.post(`https://expbackend.up.railway.app/usuarios`, newUser);
-          setUsuarios([...users, { ...newUser, id: response.data.id }]); // Asumiendo que la API devuelve el nuevo usuario
+          setUsuarios([...usuarios, { ...newUser, id: response.data.id }]); // Asumiendo que la API devuelve el nuevo usuario
           setNewUser({ nombre: '', apellido: '', email: '' }); // Reiniciar el formulario
           alert('Usuario creado');
         } catch (error) {
@@ -61,7 +61,7 @@ const Usuarios = () => {
         </table>
         <div>
             <h2>Crear Usuario</h2>
-            <form onSubmit={createUser}>
+            <form onSubmit={crearUsuario}>
                 <input type="text" placeholder="Nombre" name="nombre" value={newUser.nombre} onChange={handleNewUserChange} required />
                 <input type="text" placeholder="Apellido" name="apellido" value={newUser.apellido} onChange={handleNewUserChange} required />
                 <input type="email" placeholder="Email" name="email" value={newUser.email} onChange={handleNewUserChange} required />
