@@ -73,26 +73,28 @@ const Usuarios = () => {
 
 
     return (<div>
-        <table className="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>eMail</th>
+        <div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>eMail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {usuarios.map((u) => (
+                <tr key={u.id}>
+                <td>{u.id}</td>
+                <td>{u.nombre}</td>
+                <td>{u.apellido}</td>
+                <td>{u.email}</td>
                 </tr>
-            </thead>
-            <tbody>
-                {usuarios.map((u) => (
-            <tr key={u.id}>
-              <td>{u.id}</td>
-              <td>{u.nombre}</td>
-              <td>{u.apellido}</td>
-              <td>{u.email}</td>
-            </tr>
-            ))}
-            </tbody>
-        </table>
+                ))}
+                </tbody>
+            </table>
+        </div>
         <div>
             <h2>Crear Usuario</h2>
             <form onSubmit={crearUsuario}>
