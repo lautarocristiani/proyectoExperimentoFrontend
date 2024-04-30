@@ -42,8 +42,8 @@ const Usuarios = () => {
     const modificarUsuario = async (event) => {
         event.preventDefault();
         try {
-          const response = await axios.put(`https://expbackend.up.railway.app/usuarios`, editUser);
-          setUsuarios(users.map(u => u.id === editUser.userID ? {...response.data} : u));
+          const response = await axios.put(`https://expbackend.up.railway.app/usuarios/${editUser.userID}`, editUser);
+          setUsuarios(usuarios.map(u => u.id === editUser.userID ? {...response.data} : u));
           setEditUser({ nombre: '', apellido: '', email: '', userID: '' });
           alert('Usuario actualizado');
         } catch (error) {
@@ -60,7 +60,7 @@ const Usuarios = () => {
         event.preventDefault();
         try {
           await axios.delete(`https://expbackend.up.railway.app/usuarios/${deleteUserID}`);
-          setUsuarios(users.filter(u => u.id !== deleteUserID));
+          setUsuarios(usuarios.filter(u => u.id !== deleteUserID));
           setDeleteUserID('');
           alert('Usuario eliminado');
         } catch (error) {
