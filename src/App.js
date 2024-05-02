@@ -3,6 +3,7 @@ import './styles/navbar.css';
 import PrecioDolarOficial from './components/PrecioDolarOficial';
 import Usuarios from './components/Usuarios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Grafico from './components/Grafico';
 
 function App() {
   return (
@@ -16,11 +17,15 @@ function App() {
               <li class="nav-item">
                 <Link to="/Usuarios" class="nav-link">Administrar usuarios</Link>
               </li>
+              <li class="nav-item">
+                <Link to="/Usuarios" class="nav-link">Administrar usuarios</Link>
+              </li>
             </ul>
           </nav>
         <Routes>
           <Route path="/precioDolar" element={<PrecioDolarOficial />} />
           <Route path="/usuarios" element={<Usuarios />} />
+          <Route path="/grafico" element={<Grafico />} />
         </Routes>
       </Router>
     </div>
