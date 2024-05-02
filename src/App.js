@@ -18,7 +18,7 @@ function App() {
                 <Link to="/Usuarios" class="nav-link">Administrar usuarios</Link>
               </li>
               <li class="nav-item">
-                <Link to="/Usuarios" class="nav-link">Administrar usuarios</Link>
+                <Link to="/grafico" class="nav-link">Grafico</Link>
               </li>
             </ul>
           </nav>
