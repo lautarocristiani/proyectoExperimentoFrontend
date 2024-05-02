@@ -4,6 +4,7 @@ import PrecioDolarOficial from './components/PrecioDolarOficial';
 import Usuarios from './components/Usuarios';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Grafico from './components/Grafico';
+import JsRofex from './components/JsRofex';
 
 function App() {
   return (
@@ -20,12 +21,16 @@ function App() {
               <li class="nav-item">
                 <Link to="/grafico" class="nav-link">Grafico</Link>
               </li>
+              <li class="nav-item">
+                <Link to="/jsrofex" class="nav-link">JsRofex</Link>
+              </li>
             </ul>
           </nav>
         <Routes>
           <Route path="/precioDolar" element={<PrecioDolarOficial />} />
           <Route path="/usuarios" element={<Usuarios />} />
           <Route path="/grafico" element={<Grafico symbol="BTCUSD" />} />
+          <Route path="/jsrofex" element={<JsRofex />} />
         </Routes>
       </Router>
     </div>

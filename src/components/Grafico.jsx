@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+
 const Grafico = ({ symbol }) => {
   useEffect(() => {
     const script = document.createElement('script');
