@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/precioDolar" element={<PrecioDolarOficial />} />
           <Route path="/usuarios" element={<Usuarios />} />
-          <Route path="/grafico" element={<Grafico symbol="EURUSD" />} />
+          <Route path="/grafico" element={<Grafico symbol="BTCUSD" />} />
         </Routes>
       </Router>
     </div>
