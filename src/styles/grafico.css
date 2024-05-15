@@ -1,0 +1,54 @@
+/* Estilos para la tabla de Trades del Día con scroll */
+.trades-container {
+    overflow-y: auto;
+    max-height: 300px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+/* Estilos para la tabla de Market Data sin scroll */
+.market-data-container {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.th, .td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.market-data-table .td,
+.market-data-table .th {
+    padding: 12px 15px;
+    text-align: right;
+}
+
+.market-data-table .th:first-child,
+.market-data-table .td:first-child {
+    text-align: left;
+}
+
+.market-data-table {
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+}

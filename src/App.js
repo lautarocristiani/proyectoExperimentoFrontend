@@ -9,16 +9,16 @@ function App() {
   return (
     <div>
       <Router>
-          <nav class="navbar">
-            <ul class="nav-list">
-              <li class="nav-item">
-                <Link to="/precioDolar" class="nav-link">Precio dolar oficial</Link>
+          <nav className="navbar">
+            <ul className="nav-list">
+              <li className="nav-item">
+                <Link to="/precioDolar" className="nav-link">Precio dolar oficial</Link>
               </li>
-              <li class="nav-item">
-                <Link to="/Usuarios" class="nav-link">Administrar usuarios</Link>
+              <li className="nav-item">
+                <Link to="/Usuarios" className="nav-link">Administrar usuarios</Link>
               </li>
-              <li class="nav-item">
-                <Link to="/grafico" class="nav-link">Grafico</Link>
+              <li className="nav-item">
+                <Link to="/grafico" className="nav-link">Grafico</Link>
               </li>
             </ul>
           </nav>
