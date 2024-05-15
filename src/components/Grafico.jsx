@@ -23,10 +23,12 @@ const Grafico = () => {
     const [symbol, setSymbol] = useState('RFX20/JUN24');
     const [intervalo, setIntervalo] = useState(3600000);
 
+    const urlBack = process.env.REACT_APP_API_URL || "https://expbackend.up.railway.app";
+
     useEffect(() => {
         const fetchData = async () => {
-            console.log(process.env.REACT_APP_API_URL);
-            const instDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getInstrumentDetails`);
+            console.log(urlBack);
+            const instDetails = await axios.get(`${urlBack}/getInstrumentDetails`);
             console.log(instDetails);
             const sortedInstruments = instDetails.data.instruments.sort((a, b) =>
                 (a.instrumentId.symbol > b.instrumentId.symbol) ? 1 : ((b.instrumentId.symbol > a.instrumentId.symbol) ? -1 : 0)
