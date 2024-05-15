@@ -26,7 +26,7 @@ const Grafico = () => {
     useEffect(() => {
         const fetchData = async () => {
             const instDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getInstrumentDetails`);
-
+            console.log(instDetails);
             const sortedInstruments = instDetails.data.instruments.sort((a, b) =>
                 (a.instrumentId.symbol > b.instrumentId.symbol) ? 1 : ((b.instrumentId.symbol > a.instrumentId.symbol) ? -1 : 0)
             );
