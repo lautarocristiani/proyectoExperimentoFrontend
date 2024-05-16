@@ -52,3 +52,34 @@
     box-shadow: none;
     margin-top: 0;
 }
+
+/* Estilos para Highcharts Stock Tools */
+.highcharts-popup, .highcharts-popup fieldset, .highcharts-popup label, .highcharts-popup input, .highcharts-popup select {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.highcharts-popup fieldset {
+    margin-bottom: 5px;
+}
+.highcharts-popup label {
+    display: inline-block;
+    width: 80px;
+}
+.highcharts-popup input, .highcharts-popup select {
+    width: 100px;
+    padding: 2px;
+    margin-left: 5px;
+}
+.highcharts-popup input[type=checkbox] {
+    width: auto;
+}
+.highcharts-popup button {
+    margin-top: 10px;
+}
+.highcharts-popup .highcharts-popup-close {
+    cursor: pointer;
+    color: #bbb;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff;
+}

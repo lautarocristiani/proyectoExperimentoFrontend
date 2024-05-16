@@ -4,14 +4,16 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import HighchartsStockTools from 'highcharts/modules/stock-tools';
 import HighchartsAnnotations from 'highcharts/modules/annotations';
+import HighchartsIndicators from 'highcharts/indicators/indicators-all';
 import BrandLight from 'highcharts/themes/brand-light';
 import 'highcharts/css/stocktools/gui.css';
 import 'highcharts/css/annotations/popup.css';
 import "../styles/grafico.css";
 
-// Inicializa el módulo de stock tools y anottations, además del theme Brand Light
+// Inicializa los módulos de Highcharts
 HighchartsStockTools(Highcharts);
 HighchartsAnnotations(Highcharts);
+HighchartsIndicators(Highcharts);
 BrandLight(Highcharts);
 
 const Grafico = () => {
@@ -23,27 +25,24 @@ const Grafico = () => {
     const [symbol, setSymbol] = useState('RFX20/JUN24');
     const [intervalo, setIntervalo] = useState(3600000);
 
-    const urlBack = process.env.REACT_APP_API_URL || "https://expbackend.up.railway.app";
-
     useEffect(() => {
         const fetchData = async () => {
-            console.log(urlBack);
-            const instDetails = await axios.get(`${urlBack}/getInstrumentDetails`);
-            console.log(instDetails);
+            const instDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getInstrumentDetails`);
+
             const sortedInstruments = instDetails.data.instruments.sort((a, b) =>
                 (a.instrumentId.symbol > b.instrumentId.symbol) ? 1 : ((b.instrumentId.symbol > a.instrumentId.symbol) ? -1 : 0)
             );
-    
-            const tradeDetails = await axios.get(`${urlBack}/getTodayTrades`, {
+
+            const tradeDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getTodayTrades`, {
                 params: { symbol }
             });
 
-            const marketDetails = await axios.get(`${urlBack}/getMarketData`, {
+            const marketDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getMarketData`, {
                 params: { symbol, entries: "BI,OF,LA,OP,CL,SE,OI", depth: 1 }
             });
 
-            const chartDetails = await axios.get(`${urlBack}/getTrades`, {
-                params: { symbol , date: "2024-01-01", dateTo: "2024-12-31", intervalo }
+            const chartDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getTrades`, {
+                params: { symbol, date: "2024-01-01", dateTo: "2024-12-31", intervalo }
             });
 
             setInstrumentDetails(sortedInstruments);
@@ -57,6 +56,9 @@ const Grafico = () => {
     }, [symbol, intervalo]);
 
     const options = {
+        chart: {
+            height: 800
+        },
         rangeSelector: {
             enabled: true,
             selected: 1,
@@ -79,7 +81,7 @@ const Grafico = () => {
             }]
         },
         title: {
-            text: `${symbol} Stock Price`
+            text: `${symbol}`
         },
         xAxis: {
             type: 'datetime',
@@ -89,13 +91,13 @@ const Grafico = () => {
             }
         },
         yAxis: [{
-            height: '50%',
+            height: '60%',
             resize: {
                 enabled: true
             }
         }, {
-            top: '55%',
-            height: '45%',
+            top: '65%',
+            height: '35%',
             offset: 0
         }],
         series: [
@@ -120,11 +122,28 @@ const Grafico = () => {
         ],
         stockTools: {
             gui: {
-                enabled: true
+                enabled: true,
+                buttons: [
+                    'indicators',
+                    'simpleShapes',
+                    'lines',
+                    'crookedLines',
+                    'measure',
+                    'advanced',
+                    'toggleAnnotations',
+                    'separator',
+                    'verticalLabels',
+                    'flags'
+                ]
             }
         },
         navigation: {
-            bindingsClassName: 'stocktools-wrapper'
+            bindingsClassName: 'stocktools-wrapper',
+            bindings: {
+                simpleShapes: ['label', 'circle', 'rectangle'],
+                lines: ['segment', 'arrowSegment', 'ray', 'arrowRay', 'line', 'arrowLine'],
+                crookedLines: ['elliott3', 'elliott5', 'crooked3', 'crooked5']
+            }
         }
     };
 
@@ -148,7 +167,9 @@ const Grafico = () => {
                             <option value={3600000}>1 hora</option>
                         </select>
                     </div>
-                    <HighchartsReact highcharts={Highcharts} constructorType={'stockChart'} options={options} />
+                    <div className="chart-container">
+                        <HighchartsReact highcharts={Highcharts} constructorType={'stockChart'} options={options} />
+                    </div>
                     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                         <div className="market-data-container">
                             <h2>Market Data</h2>
