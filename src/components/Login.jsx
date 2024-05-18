@@ -77,7 +77,7 @@ const Login = ({ setToken, setUser }) => {
                             />
                         </div>
                         {error && <p className="text-danger">{error}</p>}
-                        <button type="submit" className="btn form-button w-100">Iniciar Sesión</button>
+                        <button type="submit" className="form-button w-100">Iniciar Sesión</button>
                     </form>
                     <div className="mt-3">
                         <span>¿No tienes una cuenta?</span>
@@ -128,7 +128,7 @@ const Login = ({ setToken, setUser }) => {
                             />
                         </div>
                         {error && <p className="text-danger">{error}</p>}
-                        <button type="submit" className="btn form-button w-100">Registrarse</button>
+                        <button type="submit" className="form-button w-100">Registrarse</button>
                     </form>
                     <div className="mt-3">
                         <span>¿Ya tienes una cuenta?</span>
