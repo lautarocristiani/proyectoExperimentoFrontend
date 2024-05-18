@@ -16,6 +16,9 @@ const Login = ({ setToken, setUser }) => {
 
         const url = isLogin ? `${process.env.REACT_APP_API_URL}/login` : `${process.env.REACT_APP_API_URL}/signup`;
 
+        console.log(process.env.REACT_APP_API_URL);
+        console.log(url);
+
         try {
             const response = await axios.post(url, {
                 nombre,
