@@ -14,10 +14,8 @@ const Login = ({ setToken, setUser }) => {
         e.preventDefault();
         setError('');
 
-        const url = isLogin ? `expbackend.up.railway.app/login` : `expbackend.up.railway.app/signup`;
-
-        console.log(process.env.REACT_APP_API_URL);
-        console.log(url);
+        const baseUrl = 'https://expbackend.up.railway.app';
+        const url = isLogin ? `${baseUrl}/login` : `${baseUrl}/signup`;
 
         try {
             const response = await axios.post(url, {
