@@ -27,21 +27,24 @@ const Grafico = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const instDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getInstrumentDetails`);
+
+            const baseUrl = 'https://expbackend.up.railway.app';
+
+            const instDetails = await axios.get(`${baseUrl}/getInstrumentDetails`);
 
             const sortedInstruments = instDetails.data.instruments.sort((a, b) =>
                 (a.instrumentId.symbol > b.instrumentId.symbol) ? 1 : ((b.instrumentId.symbol > a.instrumentId.symbol) ? -1 : 0)
             );
 
-            const tradeDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getTodayTrades`, {
+            const tradeDetails = await axios.get(`${baseUrl}/getTodayTrades`, {
                 params: { symbol }
             });
 
-            const marketDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getMarketData`, {
+            const marketDetails = await axios.get(`${baseUrl}/getMarketData`, {
                 params: { symbol, entries: "BI,OF,LA,OP,CL,SE,OI", depth: 1 }
             });
 
-            const chartDetails = await axios.get(`${process.env.REACT_APP_API_URL}/getTrades`, {
+            const chartDetails = await axios.get(`${baseUrl}/getTrades`, {
                 params: { symbol, date: "2024-01-01", dateTo: "2024-12-31", intervalo }
             });
 

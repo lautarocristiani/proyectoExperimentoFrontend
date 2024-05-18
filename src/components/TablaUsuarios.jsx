@@ -5,8 +5,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const TablaUsuarios = ({ usuarios, setUsuarios, obtenerUsuarios }) => {
   const eliminarUsuario = async (id) => {
+    const baseUrl = 'https://expbackend.up.railway.app';
     try {
-      await axios.delete(`https://expbackend.up.railway.app/usuarios/${id}`);
+      await axios.delete(`${baseUrl}/usuarios/${id}`);
       setUsuarios(usuarios.filter(usuario => usuario.id !== id));
       obtenerUsuarios();
     } catch (error) {
