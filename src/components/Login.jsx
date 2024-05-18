@@ -14,7 +14,7 @@ const Login = ({ setToken, setUser }) => {
         e.preventDefault();
         setError('');
 
-        const url = isLogin ? `${process.env.REACT_APP_API_URL}/login` : `${process.env.REACT_APP_API_URL}/signup`;
+        const url = isLogin ? `expbackend.up.railway.app/login` : `expbackend.up.railway.app/signup`;
 
         console.log(process.env.REACT_APP_API_URL);
         console.log(url);
