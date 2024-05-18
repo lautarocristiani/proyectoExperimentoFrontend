@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import CryptoJS from 'crypto-js';
 import '../styles/login.css';
 
 const Login = ({ setToken, setUser }) => {
@@ -17,12 +18,15 @@ const Login = ({ setToken, setUser }) => {
         const baseUrl = 'https://expbackend.up.railway.app';
         const url = isLogin ? `${baseUrl}/login` : `${baseUrl}/signup`;
 
+        // Encriptar la contraseña antes de enviarla
+        const encryptedPassword = CryptoJS.AES.encrypt(password, 'your-secret-key').toString();
+
         try {
             const response = await axios.post(url, {
                 nombre,
                 apellido,
                 email,
-                password,
+                password: encryptedPassword,  // Enviar la contraseña encriptada
             });
 
             if (response.data) {
